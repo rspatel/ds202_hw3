@@ -14,3 +14,43 @@ data(tips, package="reshape2")
 View(tips)
 ```
 
+Question 1
+```{r}
+str(tips)
+numParty = 244
+```
+
+Question 2:
+There are num, Factor, and int types
+```{r}
+str(tips)
+```
+
+Question 3:
+```{r}
+day <- factor(tips$day, level=c('Thur', 'Fri', 'Sat', 'Sun'))
+levels(day)
+day
+```
+
+Question 4:
+```{r}
+female5 <- tips[tips$sex == 'Female' & tips$size >= 5, ]
+female5
+```
+
+Quesiton 5:
+The tip seems to have a positive relationship with the the total bill, however there is a large amount of variation in the tip at a given total_bill. One anomily in the data is the total bill beinging near \$33.00 and the tip being near \$1.25. Another anomily is a total bill near \$7.50 and a tip of near \$5.00.
+```{r}
+library(ggplot2)
+ggplot(tips, aes(x=tips$total_bill, y=tips$tip)) + geom_point()
+```
+
+Question 6:
+The average tip rate is 16.08%
+```{r}
+tips$tiprate <- tips$tip / tips$total_bill
+mean(tips$tiprate)
+```
+
+Quseiton 7:
