@@ -54,3 +54,21 @@ mean(tips$tiprate)
 ```
 
 Quseiton 7:
+```{r}
+tips$time = factor(tips$time, levels = c('Lunch', 'Dinner'))
+ggplot(tips, aes(x=tips$time, y=tips$tiprate)) + geom_boxplot()
+```
+
+Question 8:
+There appears to be no clear relation sex and smoker to tips and the total bill. There may be a small relation between smokers tipping less on larger total bills.
+```{r}
+ggplot(tips, aes(x = tips$total_bill, y = tips$tip, color = tips$smoker, shape = tips$sex)) + geom_point()
+```
+
+Question 9:
+On the weekends, more males pay the bill than females, while on Thursday and Friday females and males equally pay the bill. 
+```{r}
+ggplot(tips, aes(x=tips$sex)) + geom_bar() + facet_wrap(~tips$day)
+```
+
+
