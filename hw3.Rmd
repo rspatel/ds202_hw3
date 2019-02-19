@@ -1,0 +1,16 @@
+---
+title: 'Homework #3'
+author: "Ravi Patel; rspatel"
+date: "February 18, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+data(tips, package="reshape2")
+View(tips)
+```
+
